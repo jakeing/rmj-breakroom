@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>RMJ Consulting | Break Room Display Test</title>
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:Arial,Helvetica,sans-serif;background:#071624;color:#fff}
+    .screen{position:relative;width:100vw;height:100vh;min-height:360px;background:radial-gradient(circle at 75% 20%,#224b69 0%,#0c263c 40%,#071624 85%);overflow:hidden}
+    .header{height:13%;min-height:75px;padding:2.5vh 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.14)}
+    .brand{font-size:clamp(21px,2.2vw,38px);font-weight:800;letter-spacing:.07em}.brand span{color:#65c4e8}
+    .tag{font-size:clamp(11px,1.15vw,20px);letter-spacing:.18em;color:#a8cadb}
+    .slide{display:none;position:absolute;top:16%;left:5%;right:5%;bottom:17%;align-items:center;justify-content:center;text-align:center;flex-direction:column;animation:appear .5s ease}
+    .slide.active{display:flex}.eyebrow{color:#79cce9;text-transform:uppercase;font-weight:700;letter-spacing:.23em;font-size:clamp(15px,1.7vw,27px);margin-bottom:2.8vh}
+    h1{font-size:clamp(44px,5.7vw,105px);line-height:1.13;margin:0 0 3.5vh;max-width:1150px}
+    .subtitle{font-size:clamp(22px,2.25vw,40px);line-height:1.45;color:#c3d7e4;max-width:1100px;margin:0}
+    .accent{color:#70d4fa}.info-grid{display:flex;gap:2vw;margin-top:4vh;width:100%;max-width:1200px}.info-box{flex:1;border:1px solid #42677e;border-radius:16px;padding:3vh 2vw;background:rgba(255,255,255,.07)}
+    .info-box strong{display:block;font-size:clamp(20px,2.2vw,36px);margin-bottom:1vh}.info-box small{font-size:clamp(15px,1.35vw,25px);line-height:1.35;color:#c3d7e4}
+    .footer{position:absolute;left:5%;right:5%;bottom:4%;display:flex;align-items:center;justify-content:space-between;gap:15px;color:#a8cada;font-size:clamp(14px,1.35vw,24px)}
+    .pill{background:rgba(85,197,238,.15);border:1px solid #4086a4;color:#a1e6ff;border-radius:100px;padding:10px 20px}
+    .progress{position:absolute;bottom:0;left:0;width:100%;height:7px;background:rgba(255,255,255,.1)}.progress-fill{height:100%;background:#70d4fa;width:0;transition:width .15s linear}
+    @keyframes appear{from{opacity:.2;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:650px){.info-grid{flex-direction:column}.slide{top:14%;bottom:20%}.header{height:12%}.tag{letter-spacing:.05em}}
+  </style>
+</head>
+<body>
+<main class="screen">
+  <header class="header"><div class="brand">RMJ <span>CONSULTING</span></div><div class="tag">BREAK ROOM DISPLAY • TEST</div></header>
+  <section class="slide active"><div class="eyebrow">Connection successful</div><h1>Welcome to <span class="accent">RMJ Consulting</span></h1><p class="subtitle">This slideshow is running directly from a website — no computer connected to the TV.</p></section>
+  <section class="slide"><div class="eyebrow">Slideshow test</div><h1>Slides change <span class="accent">automatically</span></h1><p class="subtitle">Every 10 seconds, a new slide appears. The sequence repeats continuously.</p></section>
+  <section class="slide"><div class="eyebrow">Coming soon</div><h1>Your company.<br><span class="accent">Your updates.</span></h1><div class="info-grid"><div class="info-box"><strong>Company News</strong><small>Announcements and upcoming events</small></div><div class="info-box"><strong>Project Highlights</strong><small>Photos and completed work</small></div><div class="info-box"><strong>Safety Reminders</strong><small>Important messages for the team</small></div></div></section>
+  <section class="slide"><div class="eyebrow">Remote updates test</div><h1>Update the website.<br><span class="accent">Refresh the TV.</span></h1><p class="subtitle">After you edit this file in GitHub, the TV can load the newest version. This page checks for updates every 5 minutes.</p></section>
+  <footer class="footer"><div class="pill" id="status">● Website loaded successfully</div><div id="clock">Loading date &amp; time…</div><div id="slideCounter">Slide 1 of 4</div></footer>
+  <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+</main>
+<script>
+(function(){
+  var slides=document.querySelectorAll('.slide');
+  var counter=document.getElementById('slideCounter');
+  var progress=document.getElementById('progressFill');
+  var clock=document.getElementById('clock');
+  var index=0, slideDuration=10000, start=Date.now(), lastReload=Date.now();
+  function showSlide(next){
+    slides[index].classList.remove('active');
+    index=next%slides.length;
+    slides[index].classList.add('active');
+    counter.textContent='Slide '+(index+1)+' of '+slides.length;
+    start=Date.now();progress.style.width='0%';
+  }
+  function tick(){
+    var now=Date.now(),elapsed=now-start;
+    if(elapsed>=slideDuration){showSlide(index+1);elapsed=0;}
+    progress.style.width=(100*elapsed/slideDuration)+'%';
+    // Periodic page reload lets the TV pick up published changes (subject to browser behavior).
+    if(now-lastReload>=300000){window.location.reload();}
+  }
+  function updateClock(){
+    try{clock.textContent=new Date().toLocaleString('en-US',{weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});}
+    catch(e){clock.textContent=new Date().toString();}
+  }
+  updateClock();setInterval(updateClock,1000);setInterval(tick,200);
+})();
+</script>
+</body>
+</html>
