@@ -7,12 +7,6 @@
       "isAllDay": true
     },
     {
-      "title": "Meeting Salt Elite",
-      "start": "2026-11-11T21:00:00.0000000Z",
-      "end": "2026-11-11T22:00:00.0000000Z",
-      "isAllDay": false
-    },
-    {
       "title": "Melissa off",
       "start": "2026-11-12T00:00:00.0000000Z",
       "end": "2026-11-13T00:00:00.0000000Z",
@@ -59,7 +53,13 @@
       "start": "2026-12-07T00:00:00.0000000Z",
       "end": "2026-12-09T00:00:00.0000000Z",
       "isAllDay": true
+    },
+    {
+      "title": "DM- Vituvian Health Heart Doctor",
+      "start": "2026-12-07T15:20:00.0000000Z",
+      "end": "2026-12-07T15:50:00.0000000Z",
+      "isAllDay": false
     }
   ],
-  "updatedAt": "2026-11-10T17:00:13.829904+00:00"
+  "updatedAt": "2026-11-10T18:00:15.120455+00:00"
 }
