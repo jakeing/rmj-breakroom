@@ -1,66 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="color-scheme" content="dark">
-  <title>RMJ Consulting | Break Room Display Test</title>
-  <style>
-    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:Arial,Helvetica,sans-serif;background:#071624;color:#fff}
-    .screen{position:relative;width:100vw;height:100vh;min-height:360px;background:radial-gradient(circle at 75% 20%,#224b69 0%,#0c263c 40%,#071624 85%);overflow:hidden}
-    .header{height:13%;min-height:75px;padding:2.5vh 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.14)}
-    .brand{font-size:clamp(21px,2.2vw,38px);font-weight:800;letter-spacing:.07em}.brand span{color:#65c4e8}
-    .tag{font-size:clamp(11px,1.15vw,20px);letter-spacing:.18em;color:#a8cadb}
-    .slide{display:none;position:absolute;top:16%;left:5%;right:5%;bottom:17%;align-items:center;justify-content:center;text-align:center;flex-direction:column;animation:appear .5s ease}
-    .slide.active{display:flex}.eyebrow{color:#79cce9;text-transform:uppercase;font-weight:700;letter-spacing:.23em;font-size:clamp(15px,1.7vw,27px);margin-bottom:2.8vh}
-    h1{font-size:clamp(44px,5.7vw,105px);line-height:1.13;margin:0 0 3.5vh;max-width:1150px}
-    .subtitle{font-size:clamp(22px,2.25vw,40px);line-height:1.45;color:#c3d7e4;max-width:1100px;margin:0}
-    .accent{color:#70d4fa}.info-grid{display:flex;gap:2vw;margin-top:4vh;width:100%;max-width:1200px}.info-box{flex:1;border:1px solid #42677e;border-radius:16px;padding:3vh 2vw;background:rgba(255,255,255,.07)}
-    .info-box strong{display:block;font-size:clamp(20px,2.2vw,36px);margin-bottom:1vh}.info-box small{font-size:clamp(15px,1.35vw,25px);line-height:1.35;color:#c3d7e4}
-    .footer{position:absolute;left:5%;right:5%;bottom:4%;display:flex;align-items:center;justify-content:space-between;gap:15px;color:#a8cada;font-size:clamp(14px,1.35vw,24px)}
-    .pill{background:rgba(85,197,238,.15);border:1px solid #4086a4;color:#a1e6ff;border-radius:100px;padding:10px 20px}
-    .progress{position:absolute;bottom:0;left:0;width:100%;height:7px;background:rgba(255,255,255,.1)}.progress-fill{height:100%;background:#70d4fa;width:0;transition:width .15s linear}
-    @keyframes appear{from{opacity:.2;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-    @media(max-width:650px){.info-grid{flex-direction:column}.slide{top:14%;bottom:20%}.header{height:12%}.tag{letter-spacing:.05em}}
-  </style>
-</head>
-<body>
-<main class="screen">
-  <header class="header"><div class="brand">RMJ <span>CONSULTING</span></div><div class="tag">BREAK ROOM DISPLAY • TEST</div></header>
-  <section class="slide active"><div class="eyebrow">Connection successful</div><h1>Welcome to <span class="accent">RMJ Consulting</span></h1><p class="subtitle">This slideshow is running directly from a website — no computer connected to the TV.</p></section>
-  <section class="slide"><div class="eyebrow">Slideshow test</div><h1>Slides change <span class="accent">automatically</span></h1><p class="subtitle">Every 10 seconds, a new slide appears. The sequence repeats continuously.</p></section>
-  <section class="slide"><div class="eyebrow">Coming soon</div><h1>Your company.<br><span class="accent">Your updates.</span></h1><div class="info-grid"><div class="info-box"><strong>Company News</strong><small>Announcements and upcoming events</small></div><div class="info-box"><strong>Project Highlights</strong><small>Photos and completed work</small></div><div class="info-box"><strong>Safety Reminders</strong><small>Important messages for the team</small></div></div></section>
-  <section class="slide"><div class="eyebrow">Remote updates test</div><h1>Update the website.<br><span class="accent">Refresh the TV.</span></h1><p class="subtitle">After you edit this file in GitHub, the TV can load the newest version. This page checks for updates every 5 minutes.</p></section>
-  <footer class="footer"><div class="pill" id="status">● Website loaded successfully</div><div id="clock">Loading date &amp; time…</div><div id="slideCounter">Slide 1 of 4</div></footer>
-  <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
-</main>
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RMJ | Operations Calendar</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box;cursor:none!important}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#09192a;color:#eef7ff;font:clamp(12px,1.1vw,23px) Arial,Helvetica,sans-serif}.screen{height:100vh;padding:2.5vh 3vw;display:flex;flex-direction:column;gap:1.7vh;background:radial-gradient(circle at 90% 0,#194867 0%,#09192a 54%)}header{display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{font-size:clamp(26px,2.8vw,58px);font-weight:800;letter-spacing:.03em}.brand span{color:#58d4f8}.kicker{color:#a2c3d5;font-size:.85em;letter-spacing:.15em}.right{text-align:right}.clock{font-size:clamp(24px,2.2vw,45px);font-weight:700}.date{color:#bdd5e5;margin-top:3px}h1{margin:0;font-size:clamp(22px,2vw,40px)}.columns{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:1.5vw;min-height:0}.week{border:1px solid #355774;background:#122e46;border-radius:16px;display:flex;flex-direction:column;min-height:0;overflow:hidden}.week-title{padding:1.2vh 1.4vw;display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #355774;background:#1c415c;gap:12px}.week-title strong{font-size:1.3em}.week-title small{color:#c4dbeb;font-size:.8em}.days{display:grid;grid-template-rows:repeat(7,minmax(0,1fr));flex:1;min-height:0}.day{display:grid;grid-template-columns:7.1vw 1fr;min-height:0;border-bottom:1px solid #2b465e}.day:last-child{border-bottom:0}.day.today{background:#1b3d54}.day-label{padding:.75vh .65vw;display:flex;flex-direction:column;justify-content:center;color:#acd0e8}.day.today .day-label{color:#68defe}.day-label strong{font-size:1.05em}.day-label span{font-size:.8em;margin-top:.2vh}.entries{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:.3vh;padding:.4vh .7vw}.entry{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;font-size:.88em;font-weight:600;line-height:1.35}.entry time{color:#77d7f6;font-size:.85em;font-weight:400;margin-right:.5em}.empty{font-size:.8em;color:#718ca2}.extra{color:#a5cadd;font-size:.72em}footer{display:flex;justify-content:space-between;align-items:center;color:#a6c2d4;font-size:.72em;min-height:2vh}.pill{color:#78d7f5}.error{color:#ffcfaa}@media(max-width:760px){.screen{padding:2vw;gap:1vw}.brand{font-size:3vw}.columns{gap:1vw}.week-title{padding:1vw}.day{grid-template-columns:8vw 1fr}.entry{font-size:.78em}}
+</style></head><body><main class="screen"><header><div><div class="brand">RMJ <span>CONSULTING</span></div><div class="kicker">OPERATIONS • TWO-WEEK OVERVIEW</div></div><div class="right"><div class="clock" id="clock">--:--</div><div class="date" id="todayText"></div></div></header><h1>This week &amp; next week</h1><div class="columns"><section class="week"><div class="week-title"><strong>THIS WEEK</strong><small id="currentRange"></small></div><div class="days" id="currentWeek"></div></section><section class="week"><div class="week-title"><strong>NEXT WEEK</strong><small id="nextRange"></small></div><div class="days" id="nextWeek"></div></section></div><footer><span>Dates and times shown in Eastern Time • Only events approved for break-room display</span><span class="pill" id="status">Loading calendar…</span></footer></main>
 <script>
-(function(){
-  var slides=document.querySelectorAll('.slide');
-  var counter=document.getElementById('slideCounter');
-  var progress=document.getElementById('progressFill');
-  var clock=document.getElementById('clock');
-  var index=0, slideDuration=10000, start=Date.now(), lastReload=Date.now();
-  function showSlide(next){
-    slides[index].classList.remove('active');
-    index=next%slides.length;
-    slides[index].classList.add('active');
-    counter.textContent='Slide '+(index+1)+' of '+slides.length;
-    start=Date.now();progress.style.width='0%';
-  }
-  function tick(){
-    var now=Date.now(),elapsed=now-start;
-    if(elapsed>=slideDuration){showSlide(index+1);elapsed=0;}
-    progress.style.width=(100*elapsed/slideDuration)+'%';
-    // Periodic page reload lets the TV pick up published changes (subject to browser behavior).
-    if(now-lastReload>=300000){window.location.reload();}
-  }
-  function updateClock(){
-    try{clock.textContent=new Date().toLocaleString('en-US',{weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});}
-    catch(e){clock.textContent=new Date().toString();}
-  }
-  updateClock();setInterval(updateClock,1000);setInterval(tick,200);
-})();
-</script>
-</body>
-</html>
+(function(){'use strict';var Z='America/New_York',events=[],loaded=false,generated='';var fmt=new Intl.DateTimeFormat('en-US',{timeZone:Z,year:'numeric',month:'2-digit',day:'2-digit'}),clockfmt=new Intl.DateTimeFormat('en-US',{timeZone:Z,hour:'numeric',minute:'2-digit'}),dayfmt=new Intl.DateTimeFormat('en-US',{timeZone:'UTC',weekday:'short',month:'short',day:'numeric'});function parts(d){var p=fmt.formatToParts(d),o={};p.forEach(function(x){o[x.type]=x.value});return o.year+'-'+o.month+'-'+o.day}function iso(d){return d.toISOString().slice(0,10)}function plus(date,n){var d=new Date(date+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+n);return iso(d)}function monday(s){var n=new Date(s+'T12:00:00Z').getUTCDay();return plus(s,-((n+6)%7))}function label(s){return dayfmt.format(new Date(s+'T12:00:00Z'))}function range(s){return label(s)+' – '+label(plus(s,6))}function startDay(e){return e.isAllDay?String(e.start).slice(0,10):parts(new Date(e.start))}function endDay(e){if(e.isAllDay){return plus(String(e.end).slice(0,10),-1)}return parts(new Date(new Date(e.end).getTime()-1))}function time(e){if(e.isAllDay)return 'ALL DAY';return new Intl.DateTimeFormat('en-US',{timeZone:Z,hour:'numeric',minute:'2-digit'}).format(new Date(e.start))}function node(tag,cls,txt){var n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n}function renderWeek(rootId,start){var root=document.getElementById(rootId);root.textContent='';var today=parts(new Date());for(var i=0;i<7;i++){var date=plus(start,i),d=node('div','day'+(date===today?' today':'')),l=node('div','day-label'),en=node('div','entries');l.appendChild(node('strong','',label(date).split(',')[0]));l.appendChild(node('span','',label(date).split(',').slice(1).join(',').trim()));var dayEvents=events.filter(function(e){return startDay(e)<=date&&endDay(e)>=date&&!e.isCancelled}).sort(function(a,b){return (a.isAllDay?0:1)-(b.isAllDay?0:1)||String(a.start).localeCompare(String(b.start))});if(!dayEvents.length)en.appendChild(node('div','empty','—'));dayEvents.slice(0,2).forEach(function(e){var line=node('div','entry'),t=node('time','',time(e));line.appendChild(t);line.appendChild(node('span','',e.title));en.appendChild(line)});if(dayEvents.length>2)en.appendChild(node('div','extra','+'+(dayEvents.length-2)+' more'));d.appendChild(l);d.appendChild(en);root.appendChild(d)}}function render(){var today=parts(new Date()),m=monday(today),next=plus(m,7);document.getElementById('clock').textContent=clockfmt.format(new Date());document.getElementById('todayText').textContent=new Intl.DateTimeFormat('en-US',{timeZone:Z,weekday:'long',month:'long',day:'numeric',year:'numeric'}).format(new Date());document.getElementById('currentRange').textContent=range(m);document.getElementById('nextRange').textContent=range(next);renderWeek('currentWeek',m);renderWeek('nextWeek',next);if(loaded)document.getElementById('status').textContent=events.length?'Calendar data loaded • '+events.length+' approved events':'No approved events published'}async function fetchData(){try{var r=await fetch('calendar.json?v='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);var d=await r.json();if(!Array.isArray(d.events))throw new Error('Invalid calendar format');events=d.events.filter(function(e){return e&&typeof e.title==='string'&&typeof e.start==='string'&&typeof e.end==='string'&&(!e.isAllDay||/^\d{4}-\d\d-\d\d/.test(e.start))}).slice(0,300);generated=d.generatedAt||'';loaded=true;render()}catch(e){document.getElementById('status').className='error';document.getElementById('status').textContent='Calendar unavailable • '+e.message}}fetchData();setInterval(fetchData,60000);setInterval(render,30000);setInterval(function(){window.location.reload()},900000)})();
+</script></body></html>
