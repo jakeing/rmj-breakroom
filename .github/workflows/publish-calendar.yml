@@ -1,50 +1,84 @@
 name: Publish approved breakroom events
+
 on:
   repository_dispatch:
     types: [rmj_calendar_update]
+
 permissions:
   contents: write
+
 concurrency:
-  group: breakroom-calendar-publish
+  group: rmj-calendar-update
   cancel-in-progress: false
+
 jobs:
-  update:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout the repository
+        uses: actions/checkout@v4
         with:
           persist-credentials: true
-      - name: Validate payload and update calendar.json
+
+      - name: Validate and publish approved event data
         env:
-          PAYLOAD: ${{ toJSON(github.event.client_payload) }}
+          EVENT_FILE: ${{ github.event_path }}
         run: |
           python3 - <<'PY'
-          import json, os, datetime
-          payload=json.loads(os.environ['PAYLOAD'])
-          events=payload.get('events')
-          if not isinstance(events,list) or len(events)>300:
-              raise ValueError('Expected a list of at most 300 approved events')
-          clean=[]
-          for e in events:
-              if not isinstance(e,dict):
-                  raise ValueError('Invalid event')
-              title=e.get('title'); start=e.get('start'); end=e.get('end')
-              if not all(isinstance(v,str) and 0<len(v)<300 for v in [title,start,end]):
-                  raise ValueError('Invalid event fields')
-              if not title.strip():
+          import json, os, datetime, pathlib
+          with open(os.environ['EVENT_FILE'], encoding='utf-8') as f:
+              hook = json.load(f)
+          payload = hook.get('client_payload') or {}
+          if isinstance(payload, str):
+              payload = json.loads(payload)
+          events = payload.get('events')
+          if isinstance(events, str):
+              events = json.loads(events)
+          if not isinstance(events, list):
+              raise ValueError('Expected client_payload.events to be an array')
+          if len(events) > 500:
+              raise ValueError('Too many events; check Microsoft Graph paging and filtering')
+          safe = []
+          for ev in events:
+              if not isinstance(ev, dict):
                   continue
-              clean.append({'title':title.strip(),'start':start,'end':end,'isAllDay':e.get('isAllDay') is True})
-          data={'generatedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'events':clean}
-          with open('calendar.json','w',encoding='utf8') as f:
-              json.dump(data,f,ensure_ascii=False,indent=2)
-              f.write('\n')
+              title = ev.get('title')
+              start = ev.get('start')
+              end = ev.get('end')
+              all_day = ev.get('isAllDay')
+              if not isinstance(title, str) or not 0 < len(title.strip()) <= 160:
+                  continue
+              if not isinstance(start, str) or not isinstance(end, str):
+                  continue
+              try:
+                  s = datetime.datetime.fromisoformat(start.replace('Z', '+00:00'))
+                  e = datetime.datetime.fromisoformat(end.replace('Z', '+00:00'))
+                  if s.tzinfo is None or e.tzinfo is None or e <= s:
+                      continue
+              except ValueError:
+                  continue
+              if not isinstance(all_day, bool):
+                  continue
+              # Only these four approved fields are written. Never publish Outlook bodies,
+              # attendees, notes, meeting links, or other Graph response metadata.
+              safe.append({'title': title.strip(), 'start': start,
+                           'end': end, 'isAllDay': all_day})
+          safe.sort(key=lambda ev: ev['start'])
+          output = {'events': safe,
+                    'updatedAt': datetime.datetime.now(datetime.timezone.utc).isoformat()}
+          pathlib.Path('calendar.json').write_text(
+              json.dumps(output, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print('Prepared', len(safe), 'approved calendar events')
           PY
-      - name: Commit changes
+
+      - name: Commit the calendar if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add calendar.json
-          if ! git diff --cached --quiet; then
+          if git diff --staged --quiet; then
+            echo 'No calendar changes.'
+          else
             git commit -m "Update approved breakroom calendar"
             git push
           fi
