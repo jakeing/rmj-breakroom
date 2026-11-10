@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0c0c0d">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>RMJ Consulting | Operations Calendar</title>
+  <title>Operations Calendar</title>
   <style>
     :root{--navy:#0c0c0d;--navy-deep:#050505;--teal:#c7a35a;--teal-light:#fff2d6;--ink:#f6f0e5;--muted:#a7a092;--line:#403729;--paper:#08090b;--white:#161719;--shadow:0 18px 55px rgba(0,0,0,.37)}
     *{box-sizing:border-box;cursor:none!important}
@@ -53,11 +53,11 @@
     .empty{font-size:clamp(11px,.9vw,15px);color:#746d61;letter-spacing:.2px}
     footer{flex:none;min-height:38px;background:#101112;color:#b3a48c;padding:10px 3vw;display:flex;justify-content:space-between;align-items:center;font-size:clamp(10px,.8vw,14px);border-top:1px solid #483b26}
     .foot-strong{font-weight:800;color:#d7b46e;letter-spacing:.8px}
-    @media(max-width:1050px){.topbar{min-height:92px;padding:15px 2vw}.rmj-mark{width:220px}.brand{gap:12px}.brand-rule{height:36px}.day{grid-template-columns:65px minmax(0,1fr);padding:5px 9px;gap:6px}.date{gap:5px}.event{padding:5px 6px;gap:5px}.weeks{gap:9px}main{padding:12px 1.5vw 7px;gap:8px}}
+    @media(max-width:1050px){.topbar{min-height:92px;padding:15px 2vw}.rmj-logo{max-width:220px;max-height:65px}.brand{gap:12px}.brand-rule{height:36px}.day{grid-template-columns:65px minmax(0,1fr);padding:5px 9px;gap:6px}.date{gap:5px}.event{padding:5px 6px;gap:5px}.weeks{gap:9px}main{padding:12px 1.5vw 7px;gap:8px}}
     @media(max-height:720px){.topbar{min-height:78px;padding-top:10px;padding-bottom:10px}.section-head h1{font-size:26px}.week-top{padding:9px 14px}.day{padding-top:3px;padding-bottom:3px}.event{padding-top:3px;padding-bottom:3px}footer{min-height:26px;padding:5px 2vw}}
     @media(max-width:690px){html,body{overflow:auto}.shell{height:auto;min-height:100vh}.topbar{gap:8px}.brand-copy .tagline{display:none}.brand-rule{display:none}.weeks{grid-template-columns:1fr}.week{min-height:620px}.clock #today{font-size:10px}.status{display:none}.day{grid-template-columns:85px 1fr}}
   
-    .rmj-mark{width:clamp(220px,23vw,365px);height:auto;max-height:82px;display:block;flex-shrink:0}
+    .rmj-logo{display:block;max-width:min(340px,42vw);max-height:86px;width:auto;height:auto;object-fit:contain;flex-shrink:0}
     /* RMJ black + gold visual refresh. All calendar logic remains unchanged. */
     body{background:radial-gradient(ellipse at 87% -20%,#282015 0%,transparent 48%),#08090b}
     .topbar{box-shadow:0 10px 30px rgba(0,0,0,.25)}
@@ -81,16 +81,7 @@
 <div class="shell">
   <header class="topbar">
     <div class="brand">
-      <svg class="rmj-mark" viewBox="0 0 365 100" role="img" aria-label="RMJ Consulting" xmlns="http://www.w3.org/2000/svg">
-  <defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b9"/><stop offset=".48" stop-color="#d8ae5b"/><stop offset="1" stop-color="#a47730"/></linearGradient></defs>
-  <path d="M4 14h6v72H4z" fill="url(#gold)"/>
-  <text x="23" y="69" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="69" letter-spacing="-5" fill="url(#gold)">RMJ</text>
-  <path d="M25 77H203" stroke="#bc8e43" stroke-width="2"/>
-  <text x="224" y="43" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="24" letter-spacing="1.2" fill="#f7e7c6">CONSULTING</text>
-  <text x="225" y="64" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="10.5" letter-spacing="2.7" fill="#c6a66d">AUTOMATION</text>
-</svg>
-      <div class="brand-rule"></div>
-      <div class="brand-copy"><div class="eyebrow">Operations</div><div class="tagline">Engineering • Automation • Integration</div></div>
+      <img class="rmj-logo" src="logo.png" alt="RMJ logo">
     </div>
     <div class="clock"><div id="clock">--:--</div><div id="today">Loading date…</div></div>
   </header>
@@ -104,7 +95,7 @@
       <section class="week week-next"><div class="week-top"><div class="week-name">NEXT WEEK</div><div id="range1" class="week-range">—</div></div><div id="days1" class="day-grid"></div></section>
     </div>
   </main>
-  <footer><span class="foot-strong">RMJ CONSULTING LLC <span style="color:#66543a">/</span> TEAM OPERATIONS</span><span id="footStatus">Outlook operations calendar • Automatic updates</span></footer>
+  <footer><span class="foot-strong">TEAM OPERATIONS</span><span id="footStatus">Outlook operations calendar • Automatic updates</span></footer>
 </div>
 <script>
 (function(){
