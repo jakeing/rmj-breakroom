@@ -1,0 +1,50 @@
+name: Publish approved breakroom events
+on:
+  repository_dispatch:
+    types: [rmj_calendar_update]
+permissions:
+  contents: write
+concurrency:
+  group: breakroom-calendar-publish
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Validate payload and update calendar.json
+        env:
+          PAYLOAD: ${{ toJSON(github.event.client_payload) }}
+        run: |
+          python3 - <<'PY'
+          import json, os, datetime
+          payload=json.loads(os.environ['PAYLOAD'])
+          events=payload.get('events')
+          if not isinstance(events,list) or len(events)>300:
+              raise ValueError('Expected a list of at most 300 approved events')
+          clean=[]
+          for e in events:
+              if not isinstance(e,dict):
+                  raise ValueError('Invalid event')
+              title=e.get('title'); start=e.get('start'); end=e.get('end')
+              if not all(isinstance(v,str) and 0<len(v)<300 for v in [title,start,end]):
+                  raise ValueError('Invalid event fields')
+              if not title.strip():
+                  continue
+              clean.append({'title':title.strip(),'start':start,'end':end,'isAllDay':e.get('isAllDay') is True})
+          data={'generatedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'events':clean}
+          with open('calendar.json','w',encoding='utf8') as f:
+              json.dump(data,f,ensure_ascii=False,indent=2)
+              f.write('\n')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calendar.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update approved breakroom calendar"
+            git push
+          fi
