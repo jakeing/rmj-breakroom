@@ -1,12 +1,6 @@
 {
   "events": [
     {
-      "title": "City Closed - Veteran's Day",
-      "start": "2026-11-11T00:00:00.0000000Z",
-      "end": "2026-11-12T00:00:00.0000000Z",
-      "isAllDay": true
-    },
-    {
       "title": "Benjamin Off",
       "start": "2026-11-12T00:00:00.0000000Z",
       "end": "2026-11-13T00:00:00.0000000Z",
@@ -55,11 +49,17 @@
       "isAllDay": true
     },
     {
+      "title": "Kyle PTO",
+      "start": "2026-12-07T00:00:00.0000000Z",
+      "end": "2026-12-09T00:00:00.0000000Z",
+      "isAllDay": true
+    },
+    {
       "title": "DM- Vituvian Health Heart Doctor",
       "start": "2026-12-07T15:20:00.0000000Z",
       "end": "2026-12-07T15:50:00.0000000Z",
       "isAllDay": false
     }
   ],
-  "updatedAt": "2026-11-12T04:00:10.066391+00:00"
+  "updatedAt": "2026-11-12T05:00:15.242344+00:00"
 }
