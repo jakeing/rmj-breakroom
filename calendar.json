@@ -37,6 +37,12 @@
       "isAllDay": false
     },
     {
+      "title": "RH eye appointment",
+      "start": "2026-11-16T19:30:00.0000000Z",
+      "end": "2026-11-16T20:30:00.0000000Z",
+      "isAllDay": false
+    },
+    {
       "title": "Injections back",
       "start": "2026-11-23T13:00:00.0000000Z",
       "end": "2026-11-23T14:00:00.0000000Z",
@@ -49,17 +55,11 @@
       "isAllDay": true
     },
     {
-      "title": "Kyle PTO",
-      "start": "2026-12-07T00:00:00.0000000Z",
-      "end": "2026-12-09T00:00:00.0000000Z",
-      "isAllDay": true
-    },
-    {
       "title": "DM- Vituvian Health Heart Doctor",
       "start": "2026-12-07T15:20:00.0000000Z",
       "end": "2026-12-07T15:50:00.0000000Z",
       "isAllDay": false
     }
   ],
-  "updatedAt": "2026-11-11T23:00:10.790885+00:00"
+  "updatedAt": "2026-11-12T00:00:14.806582+00:00"
 }
