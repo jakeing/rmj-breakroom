@@ -19,12 +19,6 @@
       "isAllDay": true
     },
     {
-      "title": "Eye appointment RH",
-      "start": "2026-11-13T19:30:00.0000000Z",
-      "end": "2026-11-13T20:30:00.0000000Z",
-      "isAllDay": false
-    },
-    {
       "title": "RH Dr. Ballard post op",
       "start": "2026-11-16T13:15:00.0000000Z",
       "end": "2026-11-16T14:15:00.0000000Z",
@@ -55,11 +49,17 @@
       "isAllDay": true
     },
     {
+      "title": "Kyle PTO",
+      "start": "2026-12-07T00:00:00.0000000Z",
+      "end": "2026-12-09T00:00:00.0000000Z",
+      "isAllDay": true
+    },
+    {
       "title": "DM- Vituvian Health Heart Doctor",
       "start": "2026-12-07T15:20:00.0000000Z",
       "end": "2026-12-07T15:50:00.0000000Z",
       "isAllDay": false
     }
   ],
-  "updatedAt": "2026-11-13T20:00:13.584726+00:00"
+  "updatedAt": "2026-11-13T21:00:12.713817+00:00"
 }
