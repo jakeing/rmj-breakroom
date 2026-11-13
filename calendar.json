@@ -19,12 +19,6 @@
       "isAllDay": true
     },
     {
-      "title": "Meeting Dustin",
-      "start": "2026-11-13T15:00:00.0000000Z",
-      "end": "2026-11-13T18:00:00.0000000Z",
-      "isAllDay": false
-    },
-    {
       "title": "Eye appointment RH",
       "start": "2026-11-13T19:30:00.0000000Z",
       "end": "2026-11-13T20:30:00.0000000Z",
@@ -59,7 +53,13 @@
       "start": "2026-11-26T00:00:00.0000000Z",
       "end": "2026-11-28T00:00:00.0000000Z",
       "isAllDay": true
+    },
+    {
+      "title": "DM- Vituvian Health Heart Doctor",
+      "start": "2026-12-07T15:20:00.0000000Z",
+      "end": "2026-12-07T15:50:00.0000000Z",
+      "isAllDay": false
     }
   ],
-  "updatedAt": "2026-11-13T17:00:13.953341+00:00"
+  "updatedAt": "2026-11-13T18:00:22.975122+00:00"
 }
