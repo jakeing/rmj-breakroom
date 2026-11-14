@@ -1,18 +1,6 @@
 {
   "events": [
     {
-      "title": "TB Out - Wedding Travel",
-      "start": "2026-11-13T00:00:00.0000000Z",
-      "end": "2026-11-14T00:00:00.0000000Z",
-      "isAllDay": true
-    },
-    {
-      "title": "Benjamin Off",
-      "start": "2026-11-13T00:00:00.0000000Z",
-      "end": "2026-11-14T00:00:00.0000000Z",
-      "isAllDay": true
-    },
-    {
       "title": "RH Dr. Ballard post op",
       "start": "2026-11-16T13:15:00.0000000Z",
       "end": "2026-11-16T14:15:00.0000000Z",
@@ -43,10 +31,22 @@
       "isAllDay": false
     },
     {
+      "title": "Meeting Salt Elite",
+      "start": "2026-11-25T21:00:00.0000000Z",
+      "end": "2026-11-25T22:00:00.0000000Z",
+      "isAllDay": false
+    },
+    {
       "title": "Holiday-Thanksgiving",
       "start": "2026-11-26T00:00:00.0000000Z",
       "end": "2026-11-28T00:00:00.0000000Z",
       "isAllDay": true
+    },
+    {
+      "title": "Meeting Salt Elite",
+      "start": "2026-12-02T21:00:00.0000000Z",
+      "end": "2026-12-02T22:00:00.0000000Z",
+      "isAllDay": false
     },
     {
       "title": "Kyle PTO",
@@ -61,5 +61,5 @@
       "isAllDay": false
     }
   ],
-  "updatedAt": "2026-11-14T04:00:14.115151+00:00"
+  "updatedAt": "2026-11-14T05:00:12.828101+00:00"
 }
