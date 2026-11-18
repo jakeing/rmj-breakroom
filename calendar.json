@@ -1,12 +1,6 @@
 {
   "events": [
     {
-      "title": "Meeting Salt Elite",
-      "start": "2026-11-18T21:00:00.0000000Z",
-      "end": "2026-11-18T22:00:00.0000000Z",
-      "isAllDay": false
-    },
-    {
       "title": "Injections back",
       "start": "2026-11-23T13:00:00.0000000Z",
       "end": "2026-11-23T14:00:00.0000000Z",
@@ -55,11 +49,17 @@
       "isAllDay": false
     },
     {
+      "title": "Meeting Salt Elite",
+      "start": "2026-12-09T21:00:00.0000000Z",
+      "end": "2026-12-09T22:00:00.0000000Z",
+      "isAllDay": false
+    },
+    {
       "title": "Christmas Potluck",
       "start": "2026-12-18T00:00:00.0000000Z",
       "end": "2026-12-19T00:00:00.0000000Z",
       "isAllDay": true
     }
   ],
-  "updatedAt": "2026-11-18T21:00:13.873769+00:00"
+  "updatedAt": "2026-11-18T22:00:13.740846+00:00"
 }
