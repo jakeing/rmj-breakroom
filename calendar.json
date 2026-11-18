@@ -55,11 +55,11 @@
       "isAllDay": false
     },
     {
-      "title": "Meeting Salt Elite",
-      "start": "2026-12-16T21:00:00.0000000Z",
-      "end": "2026-12-16T22:00:00.0000000Z",
-      "isAllDay": false
+      "title": "Holiday Potluck",
+      "start": "2026-12-18T00:00:00.0000000Z",
+      "end": "2026-12-19T00:00:00.0000000Z",
+      "isAllDay": true
     }
   ],
-  "updatedAt": "2026-11-18T04:00:12.242324+00:00"
+  "updatedAt": "2026-11-18T05:00:11.846930+00:00"
 }
