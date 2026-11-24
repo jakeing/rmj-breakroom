@@ -43,12 +43,6 @@
       "isAllDay": false
     },
     {
-      "title": "Meeting Salt Elite",
-      "start": "2026-12-09T21:00:00.0000000Z",
-      "end": "2026-12-09T22:00:00.0000000Z",
-      "isAllDay": false
-    },
-    {
       "title": "Christmas Potluck",
       "start": "2026-12-18T00:00:00.0000000Z",
       "end": "2026-12-19T00:00:00.0000000Z",
@@ -59,7 +53,13 @@
       "start": "2026-12-23T13:00:00.0000000Z",
       "end": "2026-12-23T13:10:00.0000000Z",
       "isAllDay": false
+    },
+    {
+      "title": "Holiday-Christmas Eve",
+      "start": "2026-12-24T00:00:00.0000000Z",
+      "end": "2026-12-25T00:00:00.0000000Z",
+      "isAllDay": true
     }
   ],
-  "updatedAt": "2026-11-24T04:00:12.072728+00:00"
+  "updatedAt": "2026-11-24T05:00:13.145935+00:00"
 }
