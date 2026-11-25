@@ -19,12 +19,6 @@
       "isAllDay": false
     },
     {
-      "title": "Meeting Salt Elite",
-      "start": "2026-12-02T21:00:00.0000000Z",
-      "end": "2026-12-02T22:00:00.0000000Z",
-      "isAllDay": false
-    },
-    {
       "title": "DM-Rachel Maul with Paragon Printing",
       "start": "2026-12-03T14:00:00.0000000Z",
       "end": "2026-12-03T14:30:00.0000000Z",
@@ -59,7 +53,13 @@
       "start": "2026-12-24T00:00:00.0000000Z",
       "end": "2026-12-25T00:00:00.0000000Z",
       "isAllDay": true
+    },
+    {
+      "title": "Holiday-Christmas",
+      "start": "2026-12-25T00:00:00.0000000Z",
+      "end": "2026-12-26T00:00:00.0000000Z",
+      "isAllDay": true
     }
   ],
-  "updatedAt": "2026-11-25T04:00:14.310164+00:00"
+  "updatedAt": "2026-11-25T05:00:15.994323+00:00"
 }
